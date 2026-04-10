@@ -55,9 +55,11 @@ for i,(addr,info) in enumerate(active.items()):
         stats = {"date":datetime.now(timezone.utc).strftime("%Y-%m-%d"),"wallet":addr,"name":name,"pnl_alltime":round(info.get("pnl",0),2),"vol_alltime":round(info.get("vol",0),2),"trades_20d":len(recent),"days_active_20d":days,"markets_count_20d":len(markets),"avg_trade_size":round(avg,2),"top_market_pct":round(top_pct,1),"is_bot":top_pct>50,"categories":", ".join(info.get("categories",[])),"markets_sample":" | ".join(markets[:3]),"consistency_score":round(days*3+len(markets)*2+min(info.get("pnl",0)/1000,20),2)}
         wallet_stats.append(stats)
         for t in recent:
-            t["wallet_name"]=name
-            t["wallet_addr"]=addr
-            all_trades.append(t)
+    trade = dict(t)
+    trade["wallet_name"] = name
+    trade["wallet_addr"] = addr
+    trade["snapshot_date"] = stats["date"]
+    all_trades.append(trade)
         print(f"  [{i+1}/{len(active)}] {name}: {len(recent)} trades, {days}d, bot={stats['is_bot']}")
     except Exception as e:
         print(f"  Error {name}: {e}")

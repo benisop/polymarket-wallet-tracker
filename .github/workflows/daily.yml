@@ -2,8 +2,8 @@ name: Daily Tracker
 
 on:
   schedule:
-    - cron: '0 8 * * *'  # 8am UTC = 5am Chile
-  workflow_dispatch:      # permite correrlo manualmente
+    - cron: '0 8 * * *'
+  workflow_dispatch:
 
 jobs:
   track:
@@ -19,6 +19,7 @@ jobs:
         run: |
           git config user.email "tracker@bot.com"
           git config user.name "Tracker Bot"
-          git add data/
+          git pull --rebase origin main || true
+          git add data/ || true
           git diff --staged --quiet || git commit -m "Data $(date +%Y-%m-%d)"
-          git pull --rebase && git push || true
+          git push || true

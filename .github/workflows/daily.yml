@@ -21,4 +21,4 @@ jobs:
           git config user.name "Tracker Bot"
           git add data/
           git diff --staged --quiet || git commit -m "Data $(date +%Y-%m-%d)"
-          git push
+          git pull --rebase && git push || true

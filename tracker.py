@@ -223,8 +223,9 @@ if wallet_stats:
         print(df_micro[cols].to_string(index=False))
 
 # Trades master con append
-if all_trades:
-    df_trades_new = pd.DataFrame(all_trades)
+if all_trades and wallet_stats:
+    copy_wallets = set(df_copy["wallet"].tolist())
+    df_trades_new = pd.DataFrame([t for t in all_trades if t["wallet_addr"] in copy_wallets])
     trades_master = "data/trades_master.csv"
 
     if os.path.exists(trades_master):

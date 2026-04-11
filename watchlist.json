@@ -1,0 +1,18 @@
+{
+  "watchlist": [
+    {
+      "wallet": "0x738d138786b9d29b920ee3539a07284272c1cc21",
+      "name": "Elon Tweets Specialist",
+      "reason": "Curva limpia, nicho predecible, MICRO tier, $3785 PnL",
+      "added": "2026-04-11",
+      "status": "ACTIVE_COPY"
+    },
+    {
+      "wallet": "0xcd6be6693e2bc11150d397caa9e6f7c6744b68f5",
+      "name": "AlfredTheShiller",
+      "reason": "Rank #2348, $55K PnL, geopolitica fee-free, track record 2 años",
+      "added": "2026-04-11",
+      "status": "MONITORING"
+    }
+  ]
+}

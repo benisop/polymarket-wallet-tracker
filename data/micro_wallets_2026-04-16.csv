@@ -1,0 +1,3 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x963137a0ba0b02ebf6f37710023cc1b0303289a1,0x963137a0,ECONOMICS,18714.8,41033.7,88.9,16,161,86,89.36,0.38,0.06,2697.28,0,[],2026-04-16
+0x7f9e2d1df78614564a70becc7fa14aa9a6623a0e,0x7f9e2d1d,FINANCE,50.64,15.7,64.8,35,33,13,191.22,0.0,0.31,471.58,2,"['Bab el-Mandeb Strait effectively closed by April 30? → No @ 0.925', 'Iran removed from FIFA World Cup by April 30? → No @ 0.954']",2026-04-16

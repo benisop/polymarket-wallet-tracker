@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0xbe4361c695cee7046f95dc4cfbf5fbc37c7d0f94,0xbe4361c6,CRYPTO,66.23,22.3,65.8,52,148,148,39.33,0.87,0.35,3880.46,3,"['Bitcoin Up or Down - April 18, 4:35AM-4:40AM ET → Down @ 0.515', 'Bitcoin Up or Down - April 18, 4:40AM-4:45AM ET → Down @ 0.485', 'Bitcoin Up or Down - April 18, 4:30AM-4:35AM ET → Down @ 1.0']",2026-04-18

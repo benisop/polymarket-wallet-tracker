@@ -1,0 +1,8 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x0e5bd76779e74304d08e759072abf126d87da593,0x0e5bd767,FINANCE,15108.24,33138.6,66.7,8,173,173,75.02,0.0,0.42,341.33,0,[],2026-04-19
+0x8b24a5e26873c9674fbb073b79941c29ca93c4be,0x8b24a5e2,ECONOMICS,230.57,401.3,68.3,41,206,18,78.39,0.0,0.37,993.3,2,"[""Will SpaceX's public ticker be $X? → Yes @ 0.33"", 'Will Choo Mi-ae win the 2026 Gyeonggi Province Gubernatorial → Yes @ 0.958']",2026-04-19
+0xa80e3fe5e7a445fa047fe6de1e27f9a15217b94b,0xa80e3fe5,FINANCE,109.64,169.8,75.0,6,85,27,70.11,0.0,0.25,11291.12,0,[],2026-04-19
+0x8afa03dd6974e44d00c4d14dcccb00c0ddf6adb6,0x8afa03dd,FINANCE,91.13,122.9,76.9,10,84,84,80.75,0.0,0.46,898.67,9,"['Will Qatar strike Iran by April 30? → No @ 0.985', 'Will Silver (SI) hit (HIGH) $200 by end of June? → No @ 0.979', 'Will Gold (GC) hit (HIGH) $5,700 by end of June? → No @ 0.835']",2026-04-19
+0x7f9e2d1df78614564a70becc7fa14aa9a6623a0e,0x7f9e2d1d,POLITICS,56.46,31.8,69.0,29,38,32,205.72,0.0,0.45,12450.75,3,"['Bab el-Mandeb Strait effectively closed by April 30? → No @ 0.905', 'Iran removed from FIFA World Cup by April 30? → No @ 0.962', 'Will Reza Pahlavi lead Iran in 2026? → No @ 0.906']",2026-04-19
+0xf39651f0addaad0221806d828197064b97feed0d,0xf39651f0,POLITICS,50.77,31.5,68.8,11,159,124,70.62,1.0,0.25,9012.99,0,[],2026-04-19
+0x963137a0ba0b02ebf6f37710023cc1b0303289a1,0x963137a0,ECONOMICS,50.41,25.9,75.0,15,172,77,83.67,0.4,0.15,1795.85,2,"['Will 80 or more ships transit the Strait of Hormuz between A → No @ 0.957', 'Will 70-79 ships transit the Strait of Hormuz between April  → No @ 0.89']",2026-04-19

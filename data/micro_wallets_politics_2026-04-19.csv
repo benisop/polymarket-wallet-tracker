@@ -1,0 +1,3 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x7f9e2d1df78614564a70becc7fa14aa9a6623a0e,0x7f9e2d1d,POLITICS,56.46,31.8,69.0,29,38,32,205.72,0.0,0.45,12450.75,3,"['Bab el-Mandeb Strait effectively closed by April 30? → No @ 0.905', 'Iran removed from FIFA World Cup by April 30? → No @ 0.962', 'Will Reza Pahlavi lead Iran in 2026? → No @ 0.906']",2026-04-19
+0xf39651f0addaad0221806d828197064b97feed0d,0xf39651f0,POLITICS,50.77,31.5,68.8,11,159,124,70.62,1.0,0.25,9012.99,0,[],2026-04-19

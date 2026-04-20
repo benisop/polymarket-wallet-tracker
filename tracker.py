@@ -3,258 +3,293 @@ import pandas as pd
 import time
 import os
 from datetime import datetime, timedelta, timezone
+from collections import Counter
 
-print("=== POLYMARKET MICRO WALLET TRACKER v2 ===")
+print("=== POLYMARKET WALLET TRACKER (MICRO-COPY EDITION) ===")
 print(f"Fecha: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
 
-# ─── CONFIG ───────────────────────────────────────────────────────────────────
-CUTOFF_DAYS     = 20
-RECENT_DAYS     = 7
-MIN_WINS        = 5
-MIN_TRADE_USD   = 10
-MAX_TRADE_USD   = 300
-MIN_WIN_RATE    = 0.60
-MIN_ROI         = 0.15     # 15% ROI mínimo sobre volumen
+# ---------------- CONFIG ----------------
+# Objetivo: wallets copiables con capital de $50-100 USD.
+# Queremos ROI alto reciente, avg trade PEQUEÑO, ganancias consistentes.
 
-cutoff_ts = int((datetime.now(timezone.utc) - timedelta(days=CUTOFF_DAYS)).timestamp())
-recent_ts = int((datetime.now(timezone.utc) - timedelta(days=RECENT_DAYS)).timestamp())
+CATEGORIES = ["OVERALL", "POLITICS", "SPORTS", "CRYPTO", "FINANCE", "CULTURE", "ECONOMICS", "TECH"]
 
-CATEGORY_KEYWORDS = {
-    "POLITICS": ["election","president","congress","senate","vote","trump","biden","harris","party","democrat","republican","minister","government","poll"],
-    "SPORTS":   ["nba","nfl","mlb","nhl","soccer","football","basketball","baseball","tennis","f1","world cup","championship","league","match","game","team","player","win","score"],
-    "CRYPTO":   ["bitcoin","btc","eth","ethereum","crypto","sol","price","usd","market cap","altcoin","defi","token","coin"],
-}
+# Ventanas de análisis
+RECENT_DAYS   = 10   # ventana principal de performance
+SHORT_DAYS    = 7    # ventana corta para cross-check
+HISTORY_DAYS  = 20   # para traer trades y calcular métricas
 
-def get_category(title: str) -> str:
-    t = title.lower()
-    for cat, kw in CATEGORY_KEYWORDS.items():
-        if any(k in t for k in kw):
-            return cat
-    return "OTHERS"
+# Filtros para quedarnos en la wallet
+MAX_AVG_TRADE = 300     # USD - techo para que sea copiable con $50-100
+MIN_PNL_RECENT = 2000   # USD - piso de PnL en últimos 10 días (solo ganadores fuertes)
+MIN_TRADES_RECENT = 5   # actividad mínima para que tenga sentido estadístico
+MIN_DAYS_ACTIVE = 3     # debe tradear en >=3 días distintos
+MIN_MARKETS = 2         # diversificación mínima
+MAX_TOP_MARKET_PCT = 60 # si >60% de trades son en 1 mercado, es bot de un nicho
 
-# ─── FASE 1: SEED — wallets desde leaderboard reciente (30d) ─────────────────
-print("\n[1/4] Obteniendo seed wallets desde leaderboard 30d...")
+# Pulls de leaderboard por tipo
+LEADERBOARD_LIMIT = 50  # máx permitido por la API
 
-seed_wallets = {}
-CATEGORIES = ["OVERALL","POLITICS","SPORTS","CRYPTO","FINANCE","CULTURE","ECONOMICS","TECH"]
+cutoff_ts_recent = int((datetime.now(timezone.utc) - timedelta(days=RECENT_DAYS)).timestamp())
+cutoff_ts_short  = int((datetime.now(timezone.utc) - timedelta(days=SHORT_DAYS)).timestamp())
+cutoff_ts_hist   = int((datetime.now(timezone.utc) - timedelta(days=HISTORY_DAYS)).timestamp())
 
-for cat in CATEGORIES:
-    try:
-        r = requests.get(
-            "https://data-api.polymarket.com/v1/leaderboard",
-            params={"category": cat, "limit": 100, "window": "1m"},
-            timeout=15
-        )
-        data = r.json()
-        if not isinstance(data, list):
-            print(f"  {cat}: respuesta inesperada")
-            continue
-        for t in data:
-            a = t.get("proxyWallet", "").lower()
-            if not a:
-                continue
-            pnl = float(t.get("pnl", 0))
-            vol = float(t.get("volume", t.get("vol", 0)))
-            # Solo agrega si tiene ROI razonable (evita puro volumen)
-            if vol > 0 and (pnl / vol) >= MIN_ROI and pnl > 50:
-                if a not in seed_wallets:
-                    seed_wallets[a] = {"pnl_30d": pnl, "vol_30d": vol, "categories": []}
-                if cat not in seed_wallets[a]["categories"]:
-                    seed_wallets[a]["categories"].append(cat)
-        print(f"  {cat}: ok ({len(data)} traders)")
-    except Exception as e:
-        print(f"  {cat}: {e}")
-    time.sleep(0.3)
+# ---------------- [1/4] LEADERBOARD RECIENTE ----------------
+# Traemos WEEK (7d) + MONTH (30d) de cada categoría.
+# WEEK filtra por performance reciente - ahí viven las wallets que nos interesan.
 
-print(f"  Seed total: {len(seed_wallets)} wallets con ROI >= {MIN_ROI*100:.0f}%")
+print(f"\n[1/4] Leaderboard reciente (WEEK + MONTH, {LEADERBOARD_LIMIT}/cat)...")
+all_wallets = {}
 
-# ─── FASE 2: ANÁLISIS DE ACTIVIDAD RECIENTE ──────────────────────────────────
-print(f"\n[2/4] Analizando actividad ({CUTOFF_DAYS}d)...")
-
-results = []
-
-for i, (addr, seed_info) in enumerate(seed_wallets.items()):
-    try:
-        r = requests.get(
-            "https://data-api.polymarket.com/activity",
-            params={"user": addr, "limit": 500},
-            timeout=10
-        )
-        trades = r.json()
-        if not isinstance(trades, list) or len(trades) == 0:
-            continue
-
-        # Filtrar por ventana temporal
-        recent_trades = [t for t in trades if t.get("timestamp", 0) >= cutoff_ts]
-        if not recent_trades:
-            continue
-
-        # Solo BUY (no contar sells dobles)
-        buys = [t for t in recent_trades if t.get("side") == "BUY"]
-        if not buys:
-            continue
-
-        # Filtro de tamaño de trade: solo micro-trades
-        micro_buys = [t for t in buys if MIN_TRADE_USD <= float(t.get("usdcSize", 0)) <= MAX_TRADE_USD]
-        if len(micro_buys) < MIN_WINS:
-            continue
-
-        # Mercados únicos ganados (necesitamos redemptions como proxy de wins)
-        # Usamos SELL con price cercano a 1.0 como proxy de win
-        sells = [t for t in recent_trades if t.get("side") == "SELL"]
-        win_sells = [t for t in sells if float(t.get("price", 0)) >= 0.85]
-
-        # Mercados únicos con win
-        win_markets = list(set(t.get("conditionId", t.get("slug", "")) for t in win_sells))
-        n_wins = len(win_markets)
-
-        if n_wins < MIN_WINS:
-            continue
-
-        # Calcular win rate
-        all_markets_traded = list(set(t.get("conditionId", t.get("slug", "")) for t in buys))
-        win_rate = n_wins / len(all_markets_traded) if all_markets_traded else 0
-
-        if win_rate < MIN_WIN_RATE:
-            continue
-
-        # Zombie positions: mercados comprados pero nunca vendidos ni redimidos
-        bought_markets  = set(t.get("conditionId", "") for t in buys)
-        sold_markets    = set(t.get("conditionId", "") for t in sells)
-        zombie_markets  = bought_markets - sold_markets
-        zombie_ratio    = len(zombie_markets) / len(bought_markets) if bought_markets else 0
-
-        # Penaliza mucho zombie (inflan win rate sin cerrar)
-        if zombie_ratio > 0.5:
-            continue
-
-        # Avg trade size
-        avg_size = sum(float(t.get("usdcSize", 0)) for t in micro_buys) / len(micro_buys)
-
-        # Entry timing bonus: compró cuando precio era bajo (< 0.5) en mercados que ganó
-        early_buys = [t for t in micro_buys
-                      if float(t.get("price", 1)) < 0.5
-                      and t.get("conditionId", "") in set(t2.get("conditionId","") for t2 in win_sells)]
-        timing_bonus = min(len(early_buys) / max(n_wins, 1), 1.0)
-
-        # Actividad reciente (últimos 7d) — peso extra
-        recent_micro = [t for t in micro_buys if t.get("timestamp", 0) >= recent_ts]
-        recency_factor = 1.3 if len(recent_micro) >= 2 else 1.0
-
-        # ROI sobre volumen micro
-        micro_vol = sum(float(t.get("usdcSize", 0)) for t in micro_buys)
-        roi_pct = seed_info["pnl_30d"] / seed_info["vol_30d"] if seed_info["vol_30d"] > 0 else 0
-
-        # ── RECENT SMART SCORE ──
-        score = round(
-            (roi_pct * 100 * 0.35) +    # ROI% reciente
-            (win_rate * 100 * 0.30) +   # Win rate
-            (n_wins * 2 * 0.20) +       # Multiplicidad de wins
-            (timing_bonus * 20 * 0.15)  # Entry timing bonus
-        , 2) * recency_factor
-
-        # Categoría dominante por mercados
-        all_titles = " ".join(t.get("title", "") for t in micro_buys)
-        category = get_category(all_titles)
-        if seed_info["categories"] and seed_info["categories"][0] != "OVERALL":
-            category = seed_info["categories"][0]
-
-        # Posiciones abiertas (conviction plays)
-        open_pos = []
+for period in ["WEEK", "MONTH"]:
+    for cat in CATEGORIES:
         try:
-            rp = requests.get(
-                "https://data-api.polymarket.com/positions",
-                params={"user": addr, "sizeThreshold": MIN_TRADE_USD},
-                timeout=8
+            r = requests.get(
+                "https://data-api.polymarket.com/v1/leaderboard",
+                params={
+                    "category": cat,
+                    "timePeriod": period,
+                    "orderBy": "PNL",
+                    "limit": LEADERBOARD_LIMIT,
+                },
+                timeout=15,
             )
-            positions = rp.json()
-            if isinstance(positions, list):
-                open_pos = [
-                    {
-                        "title": p.get("title", "")[:60],
-                        "outcome": p.get("outcome", ""),
-                        "size_usd": round(float(p.get("currentValue", p.get("initialValue", 0))), 2),
-                        "price": round(float(p.get("curPrice", 0)), 3),
-                        "pnl_pct": round(float(p.get("percentPnl", 0)), 1)
+            data = r.json() if r.status_code == 200 else []
+            if not isinstance(data, list):
+                continue
+            for t in data:
+                a = t.get("proxyWallet", "").lower()
+                if not a:
+                    continue
+                if a not in all_wallets:
+                    all_wallets[a] = {
+                        "proxyWallet": a,
+                        "userName": t.get("userName", a[:10]),
+                        "pnl_week": 0.0,
+                        "pnl_month": 0.0,
+                        "vol_lb": float(t.get("vol", 0)),
+                        "categories": [],
+                        "periods": [],
                     }
-                    for p in positions
-                    if float(p.get("currentValue", p.get("initialValue", 0))) >= MIN_TRADE_USD
-                    and float(p.get("currentValue", 0)) <= MAX_TRADE_USD * 2
-                ]
-        except:
-            pass
+                w = all_wallets[a]
+                pnl = float(t.get("pnl", 0))
+                vol = float(t.get("vol", 0))
+                if period == "WEEK":
+                    w["pnl_week"] = max(w["pnl_week"], pnl)
+                else:
+                    w["pnl_month"] = max(w["pnl_month"], pnl)
+                # Guardamos el MAYOR volumen visto (overall suele ser el real)
+                w["vol_lb"] = max(w["vol_lb"], vol)
+                if cat not in w["categories"]:
+                    w["categories"].append(cat)
+                if period not in w["periods"]:
+                    w["periods"].append(period)
+            print(f"  {period}/{cat}: {len(data)} wallets")
+        except Exception as e:
+            print(f"  {period}/{cat}: {e}")
+        time.sleep(0.25)
 
-        name = ""
+print(f"Total wallets únicas en leaderboards: {len(all_wallets)}")
+
+# Pre-filtro: la wallet debe tener PnL positivo decente en al menos una ventana.
+# Usamos un piso bajo aquí porque el filtro duro viene después con los trades reales.
+prefilter = {
+    a: d for a, d in all_wallets.items()
+    if (d["pnl_week"] >= 500 or d["pnl_month"] >= 1500)
+}
+print(f"Wallets tras prefilter (pnl_week>=500 o pnl_month>=1500): {len(prefilter)}")
+
+# ---------------- [2/4] HISTORIAL DE TRADES ----------------
+print(f"\n[2/4] Historial de trades (últimos {HISTORY_DAYS}d)...")
+wallet_stats = []
+all_trades = []
+
+def fetch_all_activity(addr, start_ts, max_pages=5, page_size=500):
+    """Pagina /activity hasta cubrir la ventana o llegar al tope."""
+    trades = []
+    offset = 0
+    for _ in range(max_pages):
         try:
-            rn = requests.get(f"https://data-api.polymarket.com/profile/{addr}", timeout=5)
-            pdata = rn.json()
-            name = pdata.get("name", pdata.get("username", addr[:10]))
-        except:
-            name = addr[:10]
+            r = requests.get(
+                "https://data-api.polymarket.com/activity",
+                params={
+                    "user": addr,
+                    "limit": page_size,
+                    "offset": offset,
+                    "start": start_ts,
+                    "type": "TRADE",
+                },
+                timeout=15,
+            )
+            if r.status_code != 200:
+                break
+            batch = r.json()
+            if not isinstance(batch, list) or not batch:
+                break
+            trades.extend(batch)
+            if len(batch) < page_size:
+                break
+            offset += page_size
+        except Exception:
+            break
+        time.sleep(0.15)
+    return trades
 
-        results.append({
-            "wallet":           addr,
-            "name":             name,
-            "category":         category,
-            "smart_score":      round(score, 2),
-            "roi_pct":          round(roi_pct * 100, 1),
-            "win_rate":         round(win_rate * 100, 1),
-            "n_wins_20d":       n_wins,
-            "micro_trades_20d": len(micro_buys),
-            "recent_trades_7d": len(recent_micro),
-            "avg_trade_usd":    round(avg_size, 2),
-            "timing_bonus":     round(timing_bonus, 2),
-            "zombie_ratio":     round(zombie_ratio, 2),
-            "pnl_30d":          round(seed_info["pnl_30d"], 2),
-            "open_positions":   len(open_pos),
-            "conviction_plays": str([f"{p['title']} → {p['outcome']} @ {p['price']}" for p in open_pos[:3]]),
-            "scan_date":        datetime.now(timezone.utc).strftime("%Y-%m-%d"),
-        })
+for i, (addr, info) in enumerate(prefilter.items()):
+    name = info.get("userName", addr[:10])
+    try:
+        trades = fetch_all_activity(addr, cutoff_ts_hist)
+        if not trades:
+            continue
 
-        print(f"  [{i+1}] {name}: score={score:.1f} wr={win_rate*100:.0f}% wins={n_wins} zombie={zombie_ratio:.1%}")
+        # Filtramos solo BUY/SELL en las ventanas
+        recent_hist  = [t for t in trades if t.get("timestamp", 0) >= cutoff_ts_hist and t.get("side") in ["BUY", "SELL"]]
+        recent_10d   = [t for t in trades if t.get("timestamp", 0) >= cutoff_ts_recent and t.get("side") in ["BUY", "SELL"]]
+        recent_7d    = [t for t in trades if t.get("timestamp", 0) >= cutoff_ts_short  and t.get("side") in ["BUY", "SELL"]]
 
+        if not recent_10d:
+            continue
+
+        buys_10d = [t for t in recent_10d if t.get("side") == "BUY"]
+        sells_10d = [t for t in recent_10d if t.get("side") == "SELL"]
+
+        # Avg trade size sobre BUYS (lo que vas a copiar)
+        avg_buy = (sum(float(t.get("usdcSize", 0)) for t in buys_10d) / len(buys_10d)) if buys_10d else 0.0
+        # Volumen total (buys + sells) en 10d como proxy de capital desplegado
+        vol_10d = sum(float(t.get("usdcSize", 0)) for t in recent_10d)
+        vol_7d  = sum(float(t.get("usdcSize", 0)) for t in recent_7d)
+
+        # Días activos y diversificación
+        days_10d = len(set(datetime.fromtimestamp(t.get("timestamp", 0), tz=timezone.utc).strftime("%Y-%m-%d") for t in recent_10d))
+        markets_10d = list(set(t.get("title", "")[:80] for t in recent_10d))
+        mc = Counter(t.get("title", "") for t in recent_10d)
+        top_pct = (mc.most_common(1)[0][1] / len(recent_10d) * 100) if recent_10d else 0
+
+        # PnL reciente - usamos el del leaderboard como fuente primaria
+        pnl_week  = info["pnl_week"]
+        pnl_month = info["pnl_month"]
+
+        # ROI aproximado: pnl_week / vol_7d. Puede pasar de 100% (es por unidad de volumen).
+        roi_7d  = (pnl_week / vol_7d * 100) if vol_7d > 0 else 0.0
+        roi_10d = (pnl_month / vol_10d * 100) if vol_10d > 0 else 0.0  # pnl_month como mejor proxy dado que la API no da 10d exacto
+
+        # Posición mínima copiable: si tu capital es $50 y el avg es $150, representa 33% del capital.
+        # A menor avg_buy, más copiable es.
+        copiable_ratio = (100 / avg_buy) if avg_buy > 0 else 0  # "cuánto % del avg puedes copiar con $100"
+
+        stats = {
+            "date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+            "wallet": addr,
+            "name": name,
+            "pnl_week": round(pnl_week, 2),
+            "pnl_month": round(pnl_month, 2),
+            "vol_7d": round(vol_7d, 2),
+            "vol_10d": round(vol_10d, 2),
+            "roi_7d_pct": round(roi_7d, 2),
+            "roi_10d_pct": round(roi_10d, 2),
+            "trades_10d": len(recent_10d),
+            "buys_10d": len(buys_10d),
+            "sells_10d": len(sells_10d),
+            "days_active_10d": days_10d,
+            "markets_count_10d": len(markets_10d),
+            "avg_buy_size": round(avg_buy, 2),
+            "copiable_ratio_100usd": round(copiable_ratio, 2),
+            "top_market_pct": round(top_pct, 1),
+            "is_bot_single_market": top_pct > MAX_TOP_MARKET_PCT,
+            "categories": ", ".join(info.get("categories", [])),
+            "leaderboard_periods": ", ".join(info.get("periods", [])),
+            "markets_sample": " | ".join(markets_10d[:3]),
+        }
+
+        # Score de copiabilidad - combina ROI, tamaño pequeño, consistencia
+        # Penaliza trades gigantes (no copiables) y premia ROI alto + días activos
+        size_bonus = max(0, (MAX_AVG_TRADE - avg_buy) / MAX_AVG_TRADE) * 30  # 0-30
+        roi_bonus = min(roi_7d, 100) * 0.4  # 0-40 (cap al 100% ROI semanal)
+        activity_bonus = min(days_10d, 10) * 2  # 0-20
+        diversification_bonus = min(len(markets_10d), 10) * 1  # 0-10
+        stats["copy_score"] = round(size_bonus + roi_bonus + activity_bonus + diversification_bonus, 2)
+
+        wallet_stats.append(stats)
+
+        for t in recent_hist:
+            trade = dict(t)
+            trade["wallet_name"] = name
+            trade["wallet_addr"] = addr
+            trade["snapshot_date"] = stats["date"]
+            all_trades.append(trade)
+
+        print(f"  [{i+1}/{len(prefilter)}] {name[:20]:20s} pnl_w=${pnl_week:>7.0f} avg=${avg_buy:>5.0f} roi_7d={roi_7d:>6.1f}% score={stats['copy_score']:>5.1f}")
     except Exception as e:
-        pass
+        print(f"  [{i+1}/{len(prefilter)}] {name}: ERROR {e}")
+    time.sleep(0.15)
 
-    time.sleep(0.25)
-
-# ─── FASE 3: OUTPUT ───────────────────────────────────────────────────────────
-print(f"\n[3/4] Generando outputs... ({len(results)} wallets calificadas)")
-
+# ---------------- [3/4] FILTRADO EN TIERS ----------------
+print("\n[3/4] Filtrando en tiers...")
 os.makedirs("data", exist_ok=True)
 today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
-if results:
-    df = pd.DataFrame(results).sort_values("smart_score", ascending=False)
+df = pd.DataFrame(wallet_stats)
 
-    # Archivo completo
-    df.to_csv(f"data/micro_wallets_{today}.csv", index=False)
-
-    # Por categoría
-    for cat in ["POLITICS", "SPORTS", "CRYPTO", "OTHERS"]:
-        df_cat = df[df.category == cat]
-        if not df_cat.empty:
-            df_cat.to_csv(f"data/micro_wallets_{cat.lower()}_{today}.csv", index=False)
-            print(f"  {cat}: {len(df_cat)} wallets")
-
-    # Top 10 resumen
-    print(f"\n{'─'*80}")
-    print(f"TOP MICRO WALLETS — {today}")
-    print(f"{'─'*80}")
-    cols = ["name","category","smart_score","roi_pct","win_rate","n_wins_20d","avg_trade_usd","open_positions"]
-    print(df[cols].head(10).to_string(index=False))
-    print(f"{'─'*80}")
-
-    # Conviction plays (wallets con posiciones abiertas activas)
-    df_conviction = df[(df.open_positions > 0) & (df.smart_score >= df.smart_score.quantile(0.7))]
-    if not df_conviction.empty:
-        print(f"\nCONVICTION PLAYS ({len(df_conviction)} wallets con posiciones abiertas):")
-        for _, row in df_conviction.head(5).iterrows():
-            print(f"  {row['name']} (score={row['smart_score']}) → {row['conviction_plays']}")
-
-    print(f"\nGuardado: data/micro_wallets_{today}.csv + {len([c for c in ['POLITICS','SPORTS','CRYPTO','OTHERS']])} por categoría")
-
+if df.empty:
+    print("No hay datos. Revisa la API.")
 else:
-    print("  Sin resultados. Ajusta MIN_WINS o MIN_WIN_RATE.")
+    # Base: no bots de un solo mercado, actividad mínima
+    base = df[
+        (df.is_bot_single_market == False)
+        & (df.trades_10d >= MIN_TRADES_RECENT)
+        & (df.days_active_10d >= MIN_DAYS_ACTIVE)
+        & (df.markets_count_10d >= MIN_MARKETS)
+    ].copy()
 
-print("\n[4/4] Done.")
+    # TIER MICRO: copiables con $50-100
+    # Avg trade <= $300, PnL semana >= $2000, ROI 7d >= 5%
+    micro = base[
+        (base.avg_buy_size <= MAX_AVG_TRADE)
+        & (base.pnl_week >= MIN_PNL_RECENT)
+        & (base.roi_7d_pct >= 5)
+    ].sort_values("copy_score", ascending=False)
+
+    # TIER SIGNAL: wallets buenas pero con trades demasiado grandes - solo señal
+    # Avg > $300 pero ROI alto y PnL reciente fuerte
+    signal = base[
+        (base.avg_buy_size > MAX_AVG_TRADE)
+        & (base.pnl_week >= MIN_PNL_RECENT)
+        & (base.roi_7d_pct >= 8)
+    ].sort_values("roi_7d_pct", ascending=False)
+
+    # TIER WATCHLIST: pasaron base pero no cumplen MICRO ni SIGNAL
+    # Útil para monitorear en próximos días
+    watch = base[
+        ~base.index.isin(micro.index) & ~base.index.isin(signal.index)
+    ].sort_values("copy_score", ascending=False).head(30)
+
+    # Guardar todo
+    df.to_csv(f"data/wallets_full_{today}.csv", index=False)
+    micro.to_csv(f"data/micro_wallets_{today}.csv", index=False)
+    signal.to_csv(f"data/signal_wallets_{today}.csv", index=False)
+    watch.to_csv(f"data/watch_wallets_{today}.csv", index=False)
+
+    print(f"\n  Total procesadas:  {len(df)}")
+    print(f"  Base (pasan filtros duros de actividad): {len(base)}")
+    print(f"  MICRO (copiables con $50-100):           {len(micro)}")
+    print(f"  SIGNAL (solo señal, trades grandes):     {len(signal)}")
+    print(f"  WATCH (monitorear):                      {len(watch)}")
+
+    # ---------------- [4/4] PRINT TOP ----------------
+    print("\n[4/4] TOP MICRO (estas son las que te sirven):")
+    if not micro.empty:
+        cols = ["name", "pnl_week", "roi_7d_pct", "avg_buy_size", "trades_10d", "days_active_10d", "markets_count_10d", "copy_score", "categories"]
+        print(micro[cols].head(15).to_string(index=False))
+    else:
+        print("  Ninguna wallet cumple criterios MICRO hoy. Revisa SIGNAL o WATCH.")
+
+    print("\n    TOP SIGNAL (no copiables directo pero útiles como indicador):")
+    if not signal.empty:
+        cols = ["name", "pnl_week", "roi_7d_pct", "avg_buy_size", "trades_10d", "categories"]
+        print(signal[cols].head(10).to_string(index=False))
+
+    if all_trades:
+        pd.DataFrame(all_trades).to_csv(f"data/trades_{today}.csv", index=False)
+        print(f"\nTrades guardados: {len(all_trades)}")
+
+print("\nDone.")

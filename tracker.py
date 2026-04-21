@@ -225,8 +225,7 @@ os.makedirs("data", exist_ok=True)
 today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
 if results:
-    df = pd.DataFrame(results).sort_values("smart_score", ascending=False)
-
+    # pd.DataFrame(all_trades).to_csv(f"data/trades_{today}.csv", index=False)    
     # Archivo completo
     df.to_csv(f"data/micro_wallets_{today}.csv", index=False)
 

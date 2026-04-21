@@ -17,6 +17,7 @@ jobs:
           python-version: '3.11'
       - run: pip install -r requirements.txt
       - run: python tracker.py || true
+      - run: python tracker_v3.py || true
       - name: Guardar datos
         run: |
           git config user.email "tracker@bot.com"

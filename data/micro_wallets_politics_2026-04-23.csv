@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0xfd8f5bba5b09d286b6d1db35cda8249bdd356f11,0xfd8f5bba,POLITICS,62.0,59.8,63.2,12,198,198,76.61,1.0,0.32,4074.59,3,"['Will Abelardo de la Espriella  win the 2026 Colombian presid → No @ 0.735', 'Will Chong Won-oh win the 2026 Seoul Mayoral Election → Yes @ 0.87', 'Will Rafael López Aliaga finish in third place in the first  → Yes @ 0.909']",2026-04-23

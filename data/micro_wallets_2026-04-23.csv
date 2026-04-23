@@ -1,0 +1,4 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0xfd8f5bba5b09d286b6d1db35cda8249bdd356f11,0xfd8f5bba,POLITICS,62.0,59.8,63.2,12,198,198,76.61,1.0,0.32,4074.59,3,"['Will Abelardo de la Espriella  win the 2026 Colombian presid → No @ 0.735', 'Will Chong Won-oh win the 2026 Seoul Mayoral Election → Yes @ 0.87', 'Will Rafael López Aliaga finish in third place in the first  → Yes @ 0.909']",2026-04-23
+0xf360e2e2e385fadb6238fa686a3de231b3ca6726,0xf360e2e2,TECH,49.52,40.8,64.7,11,105,105,76.51,0.0,0.35,79.45,2,"['Will Donald Trump post 200+ Truth Social posts from April 21 → Yes @ 0.218', 'Will Donald Trump post 120-139 Truth Social posts from April → No @ 0.9']",2026-04-23
+0xde9f03151fb0a4b8cbcf6bbe24b73bf5856bb8f7,0xde9f0315,OTHERS,37.28,15.0,71.4,5,139,139,101.51,0.0,0.14,23027.36,0,[],2026-04-23

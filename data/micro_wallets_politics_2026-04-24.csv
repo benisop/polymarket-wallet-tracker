@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0xf1554a6292c37db1cd007102b0f55bd7e7ac76bd,0xf1554a62,POLITICS,217.96,354.7,107.7,28,69,6,98.18,0.0,0.38,1910.18,10,"['Will US GDP growth in Q1 2026 be greater than 3.5%? → No @ 0.916', 'Will Donald Trump publicly insult someone on April 26, 2026? → Yes @ 0.825', 'Will Netanyahu talk to Joseph Aoun by April 30? → No @ 0.88']",2026-04-24

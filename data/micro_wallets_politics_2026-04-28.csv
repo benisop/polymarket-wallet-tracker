@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0xbf4d202382ba5702721a8c43126f5f08163733ed,0xbf4d2023,POLITICS,214.97,386.5,76.9,10,185,185,79.79,1.0,0.46,2470.43,6,"['Israel x Hezbollah Ceasefire extended by April 26, 2026? → No @ 0.002', 'Will the next US x Iran diplomatic meeting occur after May 1 → Yes @ 0.735', 'US-Iran nuclear deal by June 30? → Yes @ 0.325']",2026-04-28

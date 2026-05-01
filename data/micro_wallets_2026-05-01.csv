@@ -1,0 +1,4 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0xa43a1b6d84230d5237df9268e98049be2f31ad85,0xa43a1b6d,FINANCE,88.45,121.2,66.7,14,14,5,129.21,0.0,0.24,409.63,0,[],2026-05-01
+0xf2fc14b3623b6d61d714fce23cc80baad71b7a15,0xf2fc14b3,POLITICS,68.52,20.2,137.5,11,82,3,88.9,0.0,0.25,3193.16,0,[],2026-05-01
+0x04891f4064ed4a0ffcf13f08db56a7e597e9ddf7,0x04891f40,CULTURE,50.32,24.6,69.6,16,194,194,85.11,0.94,0.17,1564.3,1,"['Will Elon Musk post 100-119 tweets from April 28 to May 5, 2 → No @ 0.961']",2026-05-01

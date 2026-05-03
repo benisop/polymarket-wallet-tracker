@@ -1,0 +1,4 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x68146921df11eab44296dc4e58025ca84741a9e7,0x68146921,CULTURE,275.51,330.3,181.0,105,47,47,80.32,0.01,0.47,72314.14,41,"['Will Inter win the 2025–26 Serie A league? → No @ 0.002', 'Will Manchester United finish in 2nd place in the 2025-26 En → Yes @ 0.002', 'Jacob Elordi announced as next James Bond? → Yes @ 0.029']",2026-05-03
+0x31864feb9d25dee93728c6225ba891530967e9ca,0x31864feb,SPORTS,89.02,68.3,94.7,36,145,145,105.13,0.58,0.03,19631.64,0,[],2026-05-03
+0x36e7e560c4d4cf32926906d939a18cf91f8a0b6b,0x36e7e560,CULTURE,52.82,29.9,68.6,24,181,90,73.96,0.0,0.26,462.18,9,"['Macron out by June 30, 2026? → Yes @ 0.021', 'Xi Jinping out before 2027? → Yes @ 0.075', 'Will Elon Musk post 180-199 tweets from May 5 to May 12, 202 → No @ 0.845']",2026-05-03

@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x08458f7e9d2858027de579e4c3ca305475496b6f,0x08458f7e,FINANCE,151.85,250.8,65.7,23,59,59,107.03,0.04,0.4,447.46,34,"['Will Marco Rubio win the 2028 US Presidential Election? → Yes @ 0.102', 'Will Jon Ossoff win the 2028 US Presidential Election? → Yes @ 0.043', 'Will Pete Hegseth win the 2028 US Presidential Election? → Yes @ 0.006']",2026-05-04

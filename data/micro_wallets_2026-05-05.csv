@@ -1,0 +1,6 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x844ef6cdd0a4d691b7a81429ee550f025aa64f41,0x844ef6cd,FINANCE,252.17,459.4,100.0,5,115,93,67.07,0.4,0.4,2155.82,0,[],2026-05-05
+0x53646d6c401e955e495c21982a511ff95f3fc64d,0x53646d6c,CULTURE,83.79,120.1,66.7,6,33,11,72.49,0.0,0.33,504.02,1,"['Will Elon Musk post 140-159 tweets from April 28 to May 5, 2 → Yes @ 0.897']",2026-05-05
+0xbfb3b7bd96f923fc22ecc8fb416d4dc5d3b24b43,0xbfb3b7bd,FINANCE,61.22,21.7,125.0,5,14,11,73.13,0.0,0.25,614.22,2,"['Will Reza Pahlavi lead Iran in 2026? → No @ 0.909', 'Will Trump nationalize elections? → No @ 0.82']",2026-05-05
+0x735410130609d8bc5a30e279263a1f566c55430f,0x73541013,CULTURE,60.52,23.3,96.0,24,161,72,55.87,0.0,0.24,790.12,4,"['Will Elon Musk post 180-199 tweets from May 1 to May 8, 2026 → No @ 0.785', 'Will Elon Musk post 160-179 tweets from May 1 to May 8, 2026 → No @ 0.715', 'Will Elon Musk post 180-199 tweets from May 5 to May 12, 202 → No @ 0.825']",2026-05-05
+0xbc1f5a7f8a5330dcd9ab1ce4b9da23bc33f37631,0xbc1f5a7f,CRYPTO,45.84,32.9,62.5,5,251,251,54.49,1.0,0.25,3895.65,0,[],2026-05-05

@@ -1,0 +1,4 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x0472be969b34d2f39bfff6583a2788d6eac3fc04,0x0472be96,CULTURE,46.8,26.4,62.5,20,321,320,33.85,0.0,0.31,529.97,1,"['Will Elon Musk post 280-299 tweets from May 15 to May 22, 20 → No @ 0.815']",2026-05-22
+0x760016cce4460c710d9b2ad830bd350723a17347,0x760016cc,TECH,45.5,30.8,70.0,7,27,23,37.93,0.14,0.1,131.59,1,['Will Chong Won-oh win the 2026 Seoul Mayoral Election → Yes @ 0.725'],2026-05-22
+0xf910cc50ec0ceecb18a24dee5b9606b5ffa87467,0xf910cc50,ECONOMICS,40.35,20.7,70.0,7,265,51,71.74,0.0,0.4,827.17,0,[],2026-05-22

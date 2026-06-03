@@ -1,0 +1,4 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x672f13d830d3617efea21c2ec7f4bda5d2c27fcc,0x672f13d8,POLITICS,174.94,317.6,71.4,5,120,120,80.72,0.0,0.29,33758.15,0,[],2026-06-03
+0x9c2617462567859fcf5764e03b9a687ebca274bc,0x9c261746,POLITICS,129.94,127.6,175.0,7,25,25,85.83,0.0,0.5,6327.16,1,['Will David Sacks leave the Trump administration before 2027? → Yes @ 0.385'],2026-06-03
+0xa022ba0a68e11a78348382ff168601012d4d77f8,0xa022ba0a,POLITICS,59.36,57.9,66.7,6,47,47,100.26,1.0,0.22,26672.35,7,"['Israel and Saudi Arabia normalize relations before 2027? → Yes @ 0.135', 'Will Iran Play in the World Cup? → No @ 0.044', 'Will Russia capture Lyman by December 31, 2026? → No @ 0.505']",2026-06-03

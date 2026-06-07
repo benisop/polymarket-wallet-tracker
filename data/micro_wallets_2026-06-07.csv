@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0xb2cd99ff5ad8f27c781e54e854ab1b2ab1afc187,0xb2cd99ff,CRYPTO,55.04,59.3,60.0,9,62,7,93.13,0.0,0.0,2886.66,1,"['Will Hyperliquid reach $100 by December 31, 2026? → No @ 0.655']",2026-06-07

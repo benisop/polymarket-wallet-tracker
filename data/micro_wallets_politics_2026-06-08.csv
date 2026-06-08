@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x10fc6c4395bc1690ee6b79a1f0e93a1a0b6b9606,0x10fc6c43,POLITICS,50.69,23.5,76.2,16,220,117,103.6,0.5,0.05,4031.8,0,[],2026-06-08

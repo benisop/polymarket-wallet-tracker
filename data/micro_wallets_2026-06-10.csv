@@ -1,0 +1,3 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x26437896ed9dfeb2f69765edcafe8fdceaab39ae,0x26437896,OTHERS,48.4,27.4,72.7,8,17,4,94.68,0.88,0.36,86940.17,0,[],2026-06-10
+0xfe032d6324fd345a5c0569424a0207349964f14f,0xfe032d63,FINANCE,43.07,21.0,66.7,12,74,74,92.69,0.33,0.28,1547.88,14,"['Will Tim Walz win the 2028 US Presidential Election? → Yes @ 0.006', 'Will Ghana win the 2026 FIFA World Cup? → Yes @ 0.002', 'Will USA win the 2026 FIFA World Cup? → Yes @ 0.011']",2026-06-10

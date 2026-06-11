@@ -1,0 +1,5 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x9bbf8abf929eddbb4da10535cf4c02db33f4c59f,0x9bbf8abf,CRYPTO,359.4,658.4,130.8,17,51,47,113.45,0.0,0.08,3261.65,3,"['Will Bitcoin reach $92,500 in June? → No @ 0.995', 'Will Ethereum reach $3,000 in June? → No @ 0.998', 'Will Bitcoin reach $87,500 in June? → No @ 0.992']",2026-06-11
+0x26437896ed9dfeb2f69765edcafe8fdceaab39ae,0x26437896,OTHERS,44.04,32.8,66.7,6,5,5,113.88,0.0,0.44,742194.82,0,[],2026-06-11
+0xc7b84afab9e144a258b98a1cb45e05df7aab0d21,0xc7b84afa,FINANCE,42.31,17.5,71.4,5,168,126,124.94,1.0,0.0,876.16,2,"['Will Gavin Newsom win the 2028 US Presidential Election? → No @ 0.855', 'Will Gavin Newsom win the 2028 US Presidential Election? → Yes @ 0.145']",2026-06-11
+0xab19716584931d81cd9e7763402673a64baa4876,0xab197165,CULTURE,35.71,15.5,61.5,8,102,98,72.1,0.12,0.46,5514.85,2,"['Russia x Ukraine ceasefire agreement by October 31, 2026? → No @ 0.715', 'Will Russia enter Sloviansk by June 30? → No @ 0.991']",2026-06-11

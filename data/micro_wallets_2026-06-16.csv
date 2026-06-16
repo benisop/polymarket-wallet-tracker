@@ -1,0 +1,4 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x9bbf8abf929eddbb4da10535cf4c02db33f4c59f,0x9bbf8abf,CRYPTO,277.93,501.9,107.1,15,67,59,108.02,0.0,0.0,2032.05,2,"['Will Bitcoin dip to $55,000 in June? → No @ 0.957', 'Will Bitcoin reach $87,500 in June? → No @ 0.994']",2026-06-16
+0xc7b84afab9e144a258b98a1cb45e05df7aab0d21,0xc7b84afa,FINANCE,57.16,39.9,83.3,5,181,172,111.6,1.0,0.17,1001.55,1,['Will Gavin Newsom win the 2028 US Presidential Election? → Yes @ 0.161'],2026-06-16
+0x4d1bcbaeed22c6da173b1a356c3c6d2270081419,0x4d1bcbae,TECH,49.58,26.2,70.6,12,202,176,91.73,1.0,0.41,159.32,9,"['GPT-5.6 released by June 30, 2026? → No @ 0.21', 'S&P 500 (SPX) Up or Down on June 16? → Down @ 0.455', 'S&P 500 (SPX) Up or Down on June 16? → Up @ 0.545']",2026-06-16

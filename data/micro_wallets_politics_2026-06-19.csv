@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x5235578efe24555b0c98e7dc10a902b09089c04a,0x5235578e,POLITICS,407.73,820.6,71.4,5,156,77,110.11,1.0,0.29,30148.94,5,"['Will Bitcoin reach $200,000 by December 31, 2026? → Yes @ 0.021', 'Will Bitcoin reach $75,000 in June? → Yes @ 0.015', 'Will Bitcoin reach $150,000 by December 31, 2026? → Yes @ 0.041']",2026-06-19

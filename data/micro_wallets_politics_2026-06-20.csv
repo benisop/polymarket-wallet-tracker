@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x0130afd6f3efddf1c3e16e01217b172dd9befb49,0x0130afd6,POLITICS,243973.87,536130.9,73.3,11,60,60,73.52,0.0,0.07,36076657.5,5,"['Will Celeste Maloy be the Republican nominee for UT-03? → No @ 0.013', 'Will no Fed rate cuts happen in 2026? → No @ 0.19', 'Will Valérie Pécresse win the 2027 French presidential elect → Yes @ 0.006']",2026-06-20

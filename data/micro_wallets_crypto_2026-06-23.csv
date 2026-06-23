@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0xfb0f17657c9c24293b918adb86362a4d8fc90b02,0xfb0f1765,CRYPTO,41.27,19.6,75.0,6,18,18,14.65,0.0,0.0,18063.34,2,"['Bitcoin Up or Down - June 23, 6:50AM-6:55AM ET → Up @ 0.275', 'Bitcoin Up or Down - June 23, 6:50AM-6:55AM ET → Down @ 0.725']",2026-06-23

@@ -1,0 +1,5 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x87da2f16cf98af9b3e2f6ba6d9c4c470815b53d1,0x87da2f16,SPORTS,364.92,725.3,60.9,14,208,208,78.29,1.0,0.43,169384.29,0,[],2026-06-23
+0x161266ecc74ef88b600c35d468a3ac4c01d47287,0x161266ec,CULTURE,67.18,36.4,81.8,36,218,98,87.85,0.0,0.14,566.68,0,[],2026-06-23
+0x913f5f691ce0a947cf60cd573cbdc7c66d8ec676,0x913f5f69,CULTURE,57.01,50.4,66.7,8,247,247,93.14,1.0,0.42,13481.0,1,"['Will Elon Musk post 180-199 tweets from June 16 to June 23,  → No @ 0.395']",2026-06-23
+0xfb0f17657c9c24293b918adb86362a4d8fc90b02,0xfb0f1765,CRYPTO,41.27,19.6,75.0,6,18,18,14.65,0.0,0.0,18063.34,2,"['Bitcoin Up or Down - June 23, 6:50AM-6:55AM ET → Up @ 0.275', 'Bitcoin Up or Down - June 23, 6:50AM-6:55AM ET → Down @ 0.725']",2026-06-23

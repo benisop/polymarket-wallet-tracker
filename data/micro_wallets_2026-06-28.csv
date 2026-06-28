@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0xc97b0b2a2547bb3ed57167092ef8a6e816c347e5,0xc97b0b2a,POLITICS,400.96,784.8,92.9,13,165,165,31.21,0.23,0.07,3174.83,7,"['Will Gold (GC) settle at $4,200-$4,600 in June? → Yes @ 0.138', 'Will Gold (GC) settle over $5,200 on the final trading day o → No @ 1.0', 'Will Gold (GC) hit (HIGH) $5,100 by end of June? → No @ 0.999']",2026-06-28

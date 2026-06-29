@@ -1,0 +1,4 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x2dbb83a1b46ce5fcd29dc07163571e1bf649f7ff,0x2dbb83a1,CULTURE,3563.59,7725.8,70.2,40,238,129,53.9,0.05,0.16,1158.86,0,[],2026-06-29
+0xc97b0b2a2547bb3ed57167092ef8a6e816c347e5,0xc97b0b2a,POLITICS,68.19,80.1,60.0,15,155,155,31.94,0.13,0.48,1239.68,6,"['Will Gold (GC) settle at $4,200-$4,600 in June? → Yes @ 0.032', 'Will Gold (GC) settle over $5,200 on the final trading day o → No @ 1.0', 'Will Gold (GC) hit (HIGH) $5,100 by end of June? → No @ 0.999']",2026-06-29
+0x2ed573f91861afeabfd0cc47925cc76e8e6672a6,0x2ed573f9,CULTURE,49.28,37.3,62.5,10,50,26,83.03,0.7,0.19,597.0,0,[],2026-06-29

@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0xf1899a30a2c016941bf4abd77b900ecacd768e47,0xf1899a30,FINANCE,49.09,20.5,90.0,9,35,3,121.11,0.0,0.2,417.43,5,"['Will Gold (XAUUSD) hit (HIGH) $5,100 in June? → No @ 0.999', 'Will a Chinese AI model become #1 by June 30?  → No @ 0.998', 'Will Gold (XAUUSD) hit (HIGH) $5,000 in June? → No @ 0.998']",2026-06-30

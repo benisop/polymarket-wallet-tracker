@@ -1,0 +1,3 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x086934317f099d0279493b3f73a954ee896114f1,0x08693431,ECONOMICS,2557.1,5539.7,85.7,6,65,39,103.87,0.0,0.0,1582.13,0,[],2026-07-10
+0xf70f2ba870efc32d07b366c2d685804dfa683c97,0xf70f2ba8,SPORTS,50.01,31.5,69.6,16,10,4,194.3,0.06,0.26,14601.46,1,['Spain vs. Belgium: Team to Advance → Spain @ 0.736'],2026-07-10

@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x2dbb83a1b46ce5fcd29dc07163571e1bf649f7ff,0x2dbb83a1,CULTURE,64.62,17.3,87.8,43,280,280,34.94,0.05,0.14,168.46,4,"['Will Elon Musk post <40 tweets from July 11 to July 13, 2026 → No @ 0.865', 'Will the highest temperature in Milan be 31°C on July 11? → No @ 0.945', 'Will Elon Musk post 90-114 tweets from July 9 to July 11, 20 → No @ 0.978']",2026-07-11

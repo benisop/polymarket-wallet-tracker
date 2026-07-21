@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0xab19716584931d81cd9e7763402673a64baa4876,0xab197165,POLITICS,1046.14,2216.0,77.8,7,65,65,84.29,1.0,0.33,2367.07,5,"['Russia x Ukraine ceasefire agreement by December 31, 2026? → No @ 0.645', 'Will Russia enter Druzkhivka by December 31, 2026? → No @ 0.74', 'Will Russia enter Sloviansk by December 31, 2026? → No @ 0.82']",2026-07-21

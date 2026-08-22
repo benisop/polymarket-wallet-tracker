@@ -1,0 +1,3 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x9bbf8abf929eddbb4da10535cf4c02db33f4c59f,0x9bbf8abf,CRYPTO,61.74,55.4,85.7,6,46,46,100.78,0.0,0.14,7781.18,0,[],2026-08-22
+0x403f2471f8aaa1e8a224f1338b073bfa3fdb94f1,0x403f2471,FINANCE,47.09,20.5,63.2,24,133,133,48.24,0.17,0.39,266.26,40,"['Will Natural Gas (NG) hit (HIGH) $3.20 in August? → No @ 0.925', 'Will Robinhood Markets, Inc. (HOOD) hit (LOW) $85 in August? → No @ 0.915', 'Will Gold (XAUUSD) hit (HIGH) $4,700 in August? → No @ 0.409']",2026-08-22

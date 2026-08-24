@@ -1,0 +1,5 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x9bbf8abf929eddbb4da10535cf4c02db33f4c59f,0x9bbf8abf,CRYPTO,767.55,1606.6,85.7,6,75,75,103.05,0.0,0.0,3855.84,0,[],2026-08-24
+0x1f9e15f39bbd5d163b0eacf0fbef647ced9e4f1a,0x1f9e15f3,TECH,54.44,16.7,63.6,42,54,54,80.85,0.05,0.5,937.51,30,"['Will Bruno Retailleau win the 2027 French presidential elect → Yes @ 0.018', 'Will Raphaël Glucksmann win the 2027 French presidential ele → Yes @ 0.022', 'Will the Democratic Party win the TN-08 House seat? → Yes @ 0.057']",2026-08-24
+0x8a524bca5c742485c1ee2056735d1825e45bd74c,0x8a524bca,TECH,54.37,35.3,81.8,9,48,19,65.71,0.44,0.09,231.26,2,"['GitHub.com critical incident by August 31, 2026? → No @ 0.615', ""Will GitHub's longest critical incident in August 2026 be le → No @ 0.939""]",2026-08-24
+0xa28547aa5c1b8c657a8a75474f2aee787bf5f906,0xa28547aa,CRYPTO,42.59,18.8,66.7,8,133,133,101.97,1.0,0.33,7513.38,0,[],2026-08-24

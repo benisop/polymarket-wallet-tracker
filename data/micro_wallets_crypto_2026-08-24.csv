@@ -1,0 +1,3 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x9bbf8abf929eddbb4da10535cf4c02db33f4c59f,0x9bbf8abf,CRYPTO,767.55,1606.6,85.7,6,75,75,103.05,0.0,0.0,3855.84,0,[],2026-08-24
+0xa28547aa5c1b8c657a8a75474f2aee787bf5f906,0xa28547aa,CRYPTO,42.59,18.8,66.7,8,133,133,101.97,1.0,0.33,7513.38,0,[],2026-08-24

@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x74b4f9447b14b12308963fc048ae363eb0756bea,0x74b4f944,FINANCE,72.22,40.1,125.0,10,61,8,82.61,0.0,0.5,1237.65,9,"['Will WTI Crude Oil (WTI) hit (HIGH) $95 in August? → Yes @ 0.013', 'Will S&P 500 (SPX) hit $8,200 (HIGH) in December? → Yes @ 0.37', 'Will S&P 500 (SPX) hit $5,200 (LOW) in December? → No @ 0.945']",2026-08-26

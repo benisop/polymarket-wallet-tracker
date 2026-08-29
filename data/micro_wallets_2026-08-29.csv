@@ -1,0 +1,3 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x4755188644460fc8140a18ccefc1e80b6a5e4158,0x47551886,CULTURE,59.67,51.4,75.0,6,34,2,114.95,1.0,0.25,1404.49,2,"['Will ""Spider-Man: Brand New Day"" 5th Weekend Box Office be a → Yes @ 0.05', 'Will the total domestic gross for Spider-Man: Brand New Day  → Yes @ 0.987']",2026-08-29
+0x06ac70013cd0c7992ec830ad5df9f7f66d5b79ec,0x06ac7001,FINANCE,46.66,17.4,84.6,11,42,13,93.23,0.0,0.23,174.37,1,"['Will Bitcoin reach $100,000 by December 31, 2026? → Yes @ 0.26']",2026-08-29

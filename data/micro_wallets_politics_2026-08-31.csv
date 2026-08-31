@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x8597ca63e722d6216bfc3057591fdc67ec49daee,0x8597ca63,POLITICS,130.17,211.3,60.6,20,67,18,95.85,0.0,0.45,4134.87,6,"['Will Rafael Grossi be the next Secretary General of the Unit → No @ 0.705', 'Will Iran target Syria by August 31, 2026? → No @ 0.936', 'Andrew Tate released from custody by December 31, 2026? → No @ 0.85']",2026-08-31

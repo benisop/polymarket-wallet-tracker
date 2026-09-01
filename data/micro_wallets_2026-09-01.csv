@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0xc02147dee42356b7a4edbb1c35ac4ffa95f61fa8,0xc02147de,ECONOMICS,44.62,19.0,76.9,10,58,58,93.14,0.2,0.38,781.09,32,"['Will Ruben Gallego win the 2028 Democratic presidential nomi → Yes @ 0.003', 'Will Tulsi Gabbard win the 2028 Republican presidential nomi → Yes @ 0.007', 'Will Robert F. Kennedy Jr. win the 2028 Republican president → Yes @ 0.004']",2026-09-01

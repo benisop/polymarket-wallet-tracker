@@ -1,0 +1,4 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0xd1436fd149ffe4ec20f385ecf91b55e54a8f83ec,0xd1436fd1,CRYPTO,655.89,1369.0,66.7,6,70,4,107.7,1.0,0.22,1961.02,0,[],2026-09-03
+0x73749db0d73fdf2bc74e56edcf30dd98180a38ff,0x73749db0,CULTURE,76.91,32.3,67.0,69,218,218,49.41,0.06,0.32,338.59,16,"['Will Elon Musk post 280-299 tweets from September 1 to Septe → No @ 0.959', 'Will NYC Mayor post 20-39 posts from August 28 to September  → Yes @ 0.986', 'Will Elon Musk post 220-239 tweets from August 28 to Septemb → No @ 0.735']",2026-09-03
+0xbe89fef40bca036bbe5c986f93fa94109087dbd5,0xbe89fef4,CULTURE,43.95,16.7,67.9,19,201,96,36.2,0.0,0.29,317.61,1,['Will Elon Musk post 160-179 tweets from September 1 to Septe → No @ 0.885'],2026-09-03

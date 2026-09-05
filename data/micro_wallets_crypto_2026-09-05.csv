@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x56ad6bd05999e0f33ea9c05a48ccb1364a46f13e,0x56ad6bd0,CRYPTO,48.33,41.3,61.1,11,85,23,53.35,0.0,0.39,5639.74,1,"['Will Bitcoin reach $110,000 by December 31, 2026? → No @ 0.825']",2026-09-05

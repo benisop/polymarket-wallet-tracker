@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x88b6e6704a2c3bdff2a7b21ce6b1b2e8f3343cff,0x88b6e670,TECH,49.76,24.7,62.8,27,190,108,89.2,0.0,0.42,395.82,21,"['Will AI solve 0 more Millennium Prize Problems in 2026? → Yes @ 0.235', 'Will Anthropic be acquired before 2027? → No @ 0.969', 'Skin cancer vaccine BLA submitted by June 30, 2027? → Yes @ 0.875']",2026-09-12

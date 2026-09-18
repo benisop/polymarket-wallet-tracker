@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x7f9e2d1df78614564a70becc7fa14aa9a6623a0e,0x7f9e2d1d,POLITICS,70.59,64.5,74.2,23,57,27,141.28,0.09,0.48,2871.97,8,"['Will Augusto Cury finish in third place in the first round o → Yes @ 0.356', 'Will Luiz Inácio Lula da Silva win the first round of the 20 → Yes @ 0.53', 'Will Flávio Bolsonaro win between 36% and 39% of the valid v → No @ 0.905']",2026-09-18

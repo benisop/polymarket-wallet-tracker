@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x355e5ae20cc1a3a2164f818e4bac8d22dd72a038,0x355e5ae2,TECH,70.08,64.0,66.7,28,181,168,44.25,0.11,0.4,1554.61,43,"['Will the highest score achieved by an OpenAI model on Humani → No @ 0.115', 'Will the highest score achieved by a Google Gemini model on  → No @ 0.28', 'Gemini 4.0 released by October 31, 2026? → No @ 0.235']",2026-09-25

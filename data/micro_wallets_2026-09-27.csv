@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x832bbb891caf3a24c7d1915d9f6369c4949b5c91,0x832bbb89,FINANCE,233.73,407.3,69.5,41,176,83,98.05,0.0,0.39,178.42,46,"['Will Chelsea win the 2026-27 English Premier League (EPL) Ch → Yes @ 0.042', 'Will Paris Saint-Germain win the 2026-27 UEFA Champions Leag → Yes @ 0.125', 'Will Real Madrid win the 2026-27 LALIGA Championship? → Yes @ 0.165']",2026-09-27

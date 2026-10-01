@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0xd1eed20edd22a289839379e89e3470ea1742a8ae,0xd1eed20e,ECONOMICS,119.18,174.8,71.0,22,39,8,116.17,0.14,0.45,423.69,8,"['Will SpaceX be the largest company in the world by market ca → Yes @ 0.004', 'Will Saudi Aramco be the largest company in the world by mar → Yes @ 0.002', 'Will OpenAI IPO by December 31 2026? → Yes @ 0.037']",2026-10-01

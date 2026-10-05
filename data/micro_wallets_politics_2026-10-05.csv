@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x17e313bb9173febb23c865a2ef8a4e8e0eaf9ba5,0x17e313bb,POLITICS,348.41,707.4,60.0,6,17,4,77.17,0.0,0.3,2168.61,8,"['Will US GDP growth in Q3 2026 be between 2.0% and 2.5%? → No @ 0.895', 'Will there be fewer than 25 average daily transits of the Ba → Yes @ 0.026', 'Will US GDP growth in Q3 2026 be greater than 3.0%? → Yes @ 0.665']",2026-10-05

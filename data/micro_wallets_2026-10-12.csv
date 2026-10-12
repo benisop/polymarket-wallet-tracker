@@ -1,0 +1,3 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x4d064064c89ad62f1866a7ed4e85f6c5d885b2ea,0x4d064064,CULTURE,67.38,51.5,64.2,34,59,14,84.98,0.32,0.17,388.99,1,['Will Elon Musk post 260-279 tweets from October 13 to Octobe → No @ 0.875'],2026-10-12
+0x8640e5845b5cb4ea3d2497a38f55485da2cf0e7d,0x8640e584,CRYPTO,64.83,25.1,69.4,50,35,11,114.29,0.08,0.28,4411.79,0,[],2026-10-12

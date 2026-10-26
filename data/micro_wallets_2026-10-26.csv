@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0xae89da6594bb0d421c8d807d74e213f8729e90b8,0xae89da65,FINANCE,84.54,115.6,89.6,43,121,0,36.43,0.0,0.06,986.11,4,"['Strait of Hormuz traffic returns to normal by December 31? → Yes @ 0.115', 'Will the upper bound of the target federal funds rate be 3.7 → Yes @ 0.017', 'Will the upper bound of the target federal funds rate be 4.0 → Yes @ 0.187']",2026-10-26

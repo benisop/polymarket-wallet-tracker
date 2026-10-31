@@ -1,0 +1,2 @@
+wallet,name,category,smart_score,roi_pct,win_rate,n_wins_20d,micro_trades_20d,recent_trades_7d,avg_trade_usd,timing_bonus,zombie_ratio,pnl_30d,open_positions,conviction_plays,scan_date
+0x1359911d098bf507069e7e22370e6f6cae3f092e,0x1359911d,POLITICS,47.03,23.5,69.2,18,157,157,91.77,0.0,0.04,9375.72,7,"['Will Khamenei post 0-4 posts from October 27 to November 3,  → Yes @ 0.933', 'Israel x Iran ceasefire continues through October 31? → Yes @ 0.992', 'Will Mojtaba Khamenei attend a US x Iran diplomatic meeting  → No @ 0.977']",2026-10-31
